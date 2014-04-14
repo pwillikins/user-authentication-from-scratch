@@ -1,8 +1,10 @@
 ENV['RACK_ENV'] = 'test'
+ENV['DATABASE_URL'] = 'postgres://gschool_user:password@localhost/authentication_ test'
 
 require_relative '../boot'
 
 require 'lib/tasks/db'
+
 
 RSpec.configure do |config|
   config.order = 'random'
