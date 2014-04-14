@@ -1,5 +1,5 @@
 ENV['RACK_ENV'] = 'test'
-ENV['DATABASE_URL'] = 'postgres://gschool_user:password@localhost/authentication_ test'
+ENV['DATABASE_URL'] = 'postgres://gschool_user:password@localhost/authentication_test'
 
 require_relative '../boot'
 
