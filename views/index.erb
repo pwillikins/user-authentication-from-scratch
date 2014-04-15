@@ -1,8 +1,10 @@
 <div class="welcome">
-  Hello,
-  <% user_list.each do |user| %>
-    <%= user[:email] %>
+  <% if user.nil? %>
+    <%= 'You are not logged in.' %>
+    <% else %>
+    Hello, <%= user[:email] %>
   <% end %>
+
   <div class="register">
     <a href="/register">Register</a>
   </div>

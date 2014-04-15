@@ -1,6 +1,9 @@
 require 'sinatra/base'
+require 'bcrypt'
 
 class Application < Sinatra::Application
+
+  enable :sessions
 
   def initialize(app=nil)
     super(app)
@@ -12,8 +15,9 @@ class Application < Sinatra::Application
   end
 
   get '/' do
-    users_table = DB[:users]
-    erb :index, locals: {user_list: users_table.to_a}
+    user_id = session[:id]
+    user = DB[:users].where(id: user_id).first
+    erb :index, locals: {user: user}
   end
 
   get '/register' do
@@ -21,8 +25,15 @@ class Application < Sinatra::Application
   end
 
   post '/' do
-    users_table = DB[:users]
-    users_table.insert(email: params[:email], password: params[:password])
+    hashed_password = BCrypt::Password.create(
+      params[:user_password]
+    )
+    user_id = DB[:users].insert(
+      email: params[:email], password: hashed_password
+    )
+
+    session[:id] = user_id
+
     redirect '/'
   end
 end

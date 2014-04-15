@@ -8,7 +8,7 @@ feature 'Homepage' do
     visit '/'
     click_link 'Register'
     fill_in 'email', with: 'joe@example.com'
-    fill_in 'password', with: 'password'
+    fill_in 'user_password', with: 'password'
     click_on  'Register'
     expect(page).to have_content 'Hello, joe@example.com'
   end
