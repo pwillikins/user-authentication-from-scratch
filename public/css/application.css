@@ -8,11 +8,20 @@ body {
     font-size: 3em;
     text-align: left;
     padding-left: 2%;
+    float: left;
 }
 
 .register {
     font-size: .5em;
     text-align: left;
+    float: left;
+    width: 25%;
+}
+
+.login {
+    font-size: .5em;
+    width: 25%;
+    float: left;
 }
 
 .form_display {

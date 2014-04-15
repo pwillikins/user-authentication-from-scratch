@@ -1,12 +1,21 @@
 <div class="welcome">
+
   <% if user.nil? %>
     <%= 'You are not logged in.' %>
+
+    <div class="register">
+      <a href="/register">Register</a>
+    </div>
+    <div class="login">
+      <a href="#">Login</a>
+    </div>
+
     <% else %>
     Hello, <%= user[:email] %>
-  <% end %>
 
-  <div class="register">
-    <a href="/register">Register</a>
-  </div>
+    <div class="register">
+      <a href="/logout">Logout</a>
+    </div>
+  <% end %>
 </div>
 
