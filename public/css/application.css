@@ -1,3 +1,44 @@
 body {
-    background-color: orange;
+    background-color: white;
+    text-align: center;
 }
+
+.welcome {
+    font-family: "Comic Sans MS";
+    font-size: 3em;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.register {
+    font-size: .5em;
+    text-align: left;
+}
+
+.form_display {
+    font-family: "Comic Sans MS";
+    font-size: 1.2em;
+    margin: auto;
+    margin-top: 5%;
+    width: 675px;
+    text-align: left;
+}
+
+.header {
+    margin: auto;
+    margin-top: 10%;
+    margin-right: 13.1%;
+    width: 600px;
+    text-align: left;
+    font-size: 3.5em;
+    font-family: "Comic Sans MS"
+}
+
+td {
+    padding: 2%;
+}
+
+.textbox {
+    width: 300px;
+}
+

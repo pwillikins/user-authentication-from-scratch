@@ -1,7 +1,10 @@
-<p>
+<div class="welcome">
   Hello,
-<% user_list.each do |user| %>
-<%= user[:email] %>
+  <% user_list.each do |user| %>
+    <%= user[:email] %>
   <% end %>
-</p>
-<a href="/register">Register</a>
+  <div class="register">
+    <a href="/register">Register</a>
+  </div>
+</div>
+

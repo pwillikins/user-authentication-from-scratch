@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><title>REGISTER</title></head>
+<head>
+  <title>REGISTER</title>
+  <link type="text/css" rel="stylesheet" href="../public/css/application.css">
+</head>
 <body>
-<h1>REGISTER</h1>
+<h1 class="header">Register</h1>
 
-<form action="/" method="post">
-  <input type="text" name="email">
-  <input type="password" name="password">
-  <input type="submit" value="Register">
-</form>
-
+<table class="form_display">
+  <form action="/" method="post">
+    <tr>
+      <td>Email</td>
+      <td><input class="textbox" type="text" name="email"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input class="textbox" type="password" name="password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input class="button" type="submit" value="Register"></td>
+    </tr>
+  </form>
+</table>
 </body>
 </html>
