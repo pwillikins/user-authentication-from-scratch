@@ -44,7 +44,7 @@ class Application < Sinatra::Application
   end
 
   get '/login' do
-    erb :login, locals: {error: nil}
+    erb :login, locals: {error_message: nil}
   end
 
   post '/login' do
@@ -52,15 +52,16 @@ class Application < Sinatra::Application
     password = params[:user_password]
     user = DB[:users].where(email: email).to_a.first
 
-    if user.nil?
-        erb :login, local: {error: 'Email / password is invalid'}
-
+    if email.empty?
+      erb :login, locals: {error_message: 'Email cannot be blank'}
+    elsif user.nil?
+      erb :login, locals: {error_message: 'Email / Password is invalid'}
     elsif BCrypt::Password.new(user[:password]) == password
-      session[:id] = user[:id]
 
+      session[:id] = user[:id]
       redirect '/'
     else
-      erb :login, locals: {error: 'Email / password is invalid'}
+      erb :login, locals: {error_message: 'Email / Password is invalid'}
     end
   end
 end
