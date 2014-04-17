@@ -51,3 +51,9 @@ td {
     width: 300px;
 }
 
+.error {
+    color: red;
+    padding-top: 1%;
+    padding-right: 10%;
+}
+
