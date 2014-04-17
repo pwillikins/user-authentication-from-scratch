@@ -24,7 +24,7 @@ class Application < Sinatra::Application
     erb :register
   end
 
-  post '/' do
+  post '/register' do
 
     hashed_password = BCrypt::Password.create(
       params[:user_password]
@@ -44,26 +44,23 @@ class Application < Sinatra::Application
   end
 
   get '/login' do
-    erb :login
+    erb :login, locals: {error: nil}
   end
 
   post '/login' do
     email = params[:email]
     password = params[:user_password]
-
     user = DB[:users].where(email: email).to_a.first
-    p user
+
     if user.nil?
-      redirect '/login'
-        # erb :login, locals: {error: "You're an asshole"}
-    else
-      BCrypt::Password.new(user[:password]) == password
-      session[:user_id] = user[:id]
+        erb :login, local: {error: 'Email / password is invalid'}
+
+    elsif BCrypt::Password.new(user[:password]) == password
+      session[:id] = user[:id]
 
       redirect '/'
+    else
+      erb :login, locals: {error: 'Email / password is invalid'}
     end
   end
-  # params[:email]
-  # params[:password]
-  # if params[:email] == DB[:email] && parms[:password] == DB[:password]
 end

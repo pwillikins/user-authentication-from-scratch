@@ -3,26 +3,25 @@ require 'capybara/rspec'
 
 Capybara.app = Application
 
-feature 'Homepage' do
-  scenario 'user can register' do
+feature 'User Registration' do
+  scenario 'user can register, logout and log back in' do
     visit '/'
     click_link 'Register'
-    fill_in 'email', with: 'joe@example.com'
-    fill_in 'user_password', with: 'password'
+    fill_in 'email', with: 'paul'
+    fill_in 'user_password', with: 'paul'
     click_on 'Register'
-    expect(page).to have_content 'Welcome, joe@example.com'
+    expect(page).to have_content 'Welcome, paul'
+
     click_link 'Logout'
     expect(page).to have_content 'You are not logged in.'
     expect(page).to have_link 'Login'
     expect(page).to have_link 'Register'
-  end
 
-  scenario 'returning user cannot login' do
-    visit '/'
     click_link 'Login'
-    fill_in 'email', with: 'joe@example.com'
-    fill_in 'user_password', with: 'cat'
+    fill_in 'email', :with => 'paul'
+    fill_in 'user_password', :with => 'paul'
     click_on 'Login'
-    expect(page).to have_content 'You are not logged in.'
+    expect(page).to have_content 'Welcome, paul'
+    expect(page).to have_link 'Logout'
   end
 end
