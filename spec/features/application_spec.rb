@@ -44,5 +44,15 @@ feature 'User Registration' do
     fill_in 'user_password', :with => 'name'
     click_on 'Login'
     expect(page).to have_content 'Email cannot be blank'
+    end
+
+  scenario 'user cannot login with a invalid password' do
+    visit '/'
+
+    click_link 'Login'
+    fill_in 'email', :with => 'paul'
+    fill_in 'user_password', :with => 'cat'
+    click_on 'Login'
+    expect(page).to have_content 'Email / Password is invalid'
   end
 end

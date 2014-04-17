@@ -1,13 +1,14 @@
 <h1 class="header">Login</h1>
-
-<% if error_message %>
-  <div class="error">
-  <%= error_message %>
-  </div>
-<% end %>
-
 <table class="form_display">
   <form action="/login" method="post">
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <% if error_message %>
+          <span style="color: red;"><%= error_message %></span>
+        <% end %>
+      </td>
+    </tr>
     <tr>
       <td>Email</td>
       <td><input class="textbox" type="text" name="email"></td>
