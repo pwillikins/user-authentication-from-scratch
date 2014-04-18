@@ -10,12 +10,24 @@
       <a href="/login">Login</a>
     </div>
 
-    <% else %>
+  <% elsif user[:admin] %>
+    <div>
+    Welcome, <%= user[:email] %>
+    </div>
+    <div class="register">
+      <a href="/logout">Logout</a>
+    </div>
+    <div class="users_link">
+      <a href="/users">View all users</a>
+    </div>
+
+  <% else %>
     Welcome, <%= user[:email] %>
 
     <div class="register">
       <a href="/logout">Logout</a>
     </div>
+
   <% end %>
 </div>
 

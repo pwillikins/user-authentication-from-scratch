@@ -1,0 +1,13 @@
+
+  <h1 class="header">Users</h1>
+  <table class="users_table" border="3px solid black">
+    <tr style="background-color:grey;">
+      <td>ID</td>
+      <td>Email</td>
+    </tr>
+    <tr>
+      <td><% users.each do |user| %><%= user[:id] %></td>
+      <td style="text-align:left;" ><%= user[:email] %></td>
+    </tr>
+  </table>
+<% end %>

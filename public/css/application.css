@@ -11,6 +11,14 @@ body {
     float: left;
 }
 
+.users {
+    font-family: "Comic Sans MS";
+    font-size: 3em;
+    text-align: left;
+    padding-left: 2%;
+    float: left;
+}
+
 .register {
     font-size: .5em;
     text-align: left;
@@ -51,9 +59,20 @@ td {
     width: 300px;
 }
 
-.error {
-    color: red;
-    padding-top: 1%;
-    padding-right: 10%;
+.users_link {
+    font-size: .5em;
+    text-align: left;
+    float: left;
+    width: 35%;
+    padding-left: 5%;
+}
+
+.users_table {
+    padding: 1em;
+    border: 2px solid black;
+}
+
+.email_column {
+    margin-right: auto;
 }
 

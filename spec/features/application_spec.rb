@@ -55,4 +55,18 @@ feature 'User Registration' do
     click_on 'Login'
     expect(page).to have_content 'Email / Password is invalid'
   end
+
+  scenario 'only admin user can see the users page' do
+    visit '/'
+    click_link 'Login'
+    DB[:users].insert(:email => 'cat@cat.com',
+                      :password => BCrypt::Password.create('cat'),
+                      :admin => true)
+
+    fill_in 'email', :with => 'cat@cat.com'
+    fill_in 'user_password', :with => 'cat'
+    click_on 'Login'
+    expect(page).to have_content 'Welcome, cat@cat.com'
+    expect(page).to have_link 'View all users'
+  end
 end
